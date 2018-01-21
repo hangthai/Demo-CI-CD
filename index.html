@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script src="lib.js"></script>
+	<script type="text/javascript">
+
+		function doLogin(username, pass) {
+			return username == 'hang' && pass == '123456';
+		}
+
+		function prepareLogin() {
+			var username = document.getElementById('username').value;
+			var pass = document.getElementById('pass').value;
+			var result = doLogin(username, pass);
+			if(result === true)
+			    document.getElementById('notice').innerHTML = 'Login successfully';
+			else
+			    document.getElementById('notice').innerHTML = 'This user is not recognized';
+			return false; // Prevent form from submitting.
+		}
+	</script>
+</head>
+<body>
+<form onsubmit="return prepareLogin();">
+	Please enter your username:
+	<input type="text" id="username"></input>
+	<br/>
+	Please enter your password:
+	<input type="password" id="pass"></input>
+	<br/>
+	<input type="submit" id="submit"/>
+	<br/>
+	<br/>
+	<div id="notice"></div>
+</form>
+</body>
+</html>
